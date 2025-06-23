@@ -1,77 +1,117 @@
-# 📦 Predicting Delivery Delays in a Smart Supply Chain using XGBoost
-
+📦 Predicting Delivery Delays in a Smart Supply Chain using XGBoost
 This project builds a machine learning model to predict whether an order will be delivered late using real-world supply chain data. The goal is to help businesses proactively address shipping issues, improve logistics performance, and enhance customer satisfaction.
 
----
-
-## 🧠 Problem Statement
-
+🧠 Problem Statement
 Shipping delays negatively impact customer experience and operational efficiency. This project aims to classify orders as delayed or on-time based on historical order, customer, and shipping data.
 
----
+📁 Dataset
+Source: Dataco Smart Supply Chain (Kaggle)
 
-## 📁 Dataset
+Size: 180,519 rows × 53 columns
 
-- **Source**: [Dataco Smart Supply Chain (Kaggle)](https://www.kaggle.com/datasets/shashwatwork/dataco-smart-supply-chain-for-big-data-analysis)
-- **Size**: 180,519 rows × 53 columns
-- **Scope**: Includes order details, shipping info, customer & product data, geography, and sales
+Includes: order details, shipping info, customer & product data, geography, and sales
 
----
+🔍 Exploratory Data Analysis (EDA)
+Key insights:
 
-## 🔍 Exploratory Data Analysis (EDA)
+~57% of orders were delayed
 
-- ~57% of orders were delayed
-- Standard Class shipping made up 60% of shipments
-- "First Class" had a suspicious 100% delay rate → flagged as unreliable
-- Delays showed no strong seasonal pattern
+Standard Class shipping made up ~60% of shipments
 
----
+“First Class” had a suspicious 100% delay rate → flagged as unreliable
 
-## 🛠️ Feature Engineering
+Shipping delays were fairly evenly distributed throughout the year (no strong seasonality)
 
-Created several domain-relevant features:
+🛠️ Feature Engineering
+Created several domain-specific features:
 
-- `shipping_duration`: Time between order and ship dates
-- `order_month`: Extracted from order date
-- `Shipping Mode Clean`: Cleaned suspicious categories
-- `is_first_class`: Flag for unreliable shipping mode
-- One-hot encoded key categorical features
+shipping_duration: Time between order and ship dates
 
----
+order_month: Month of order
 
-## 📈 Modeling
+Shipping Mode Clean: Cleaned suspicious shipping categories
 
-Used **XGBoost Classifier** with hyperparameters:
-```python
-n_estimators=100,
-learning_rate=0.1,
-max_depth=6,
-scale_pos_weight= class_0 / class_1,
-eval_metric='logloss',
-use_label_encoder=False,
-random_state=42
+is_first_class: Flag for known unreliable shipping mode
 
-## 📐 Evaluation Results
+One-hot encoding of categorical variables
 
-### 🔹 Default Threshold (0.5)
+📈 Modeling
+Used an XGBoost Classifier with stratified split and class balancing:
 
-| Class         | Precision | Recall | F1-Score |
-|---------------|-----------|--------|----------|
-| 0 (On time)   | 0.64      | 0.91   | 0.75     |
-| 1 (Delayed)   | 0.89      | 0.57   | 0.70     |
+python
+Copy
+Edit
+XGBClassifier(
+    n_estimators=100,
+    learning_rate=0.1,
+    max_depth=6,
+    scale_pos_weight= class_0_count / class_1_count,
+    eval_metric='logloss',
+    use_label_encoder=False,
+    random_state=42
+)
+📐 Evaluation Results
+🔹 Default Threshold (0.5)
+Class	Precision	Recall	F1-Score
+0 (On time)	0.64	0.91	0.75
+1 (Delayed)	0.89	0.57	0.70
 
-- **Accuracy**: 73%  
-- **Weighted F1-score**: 72%
+Accuracy: 73%
 
----
+Weighted F1-score: 72%
 
-### 🔸 Tuned Threshold (0.4)
+🔸 Tuned Threshold (0.4)
+Class	Precision	Recall	F1-Score
+0 (On time)	0.65	0.88	0.75
+1 (Delayed)	0.86	0.60	0.71
 
-| Class         | Precision | Recall | F1-Score |
-|---------------|-----------|--------|----------|
-| 0 (On time)   | 0.65      | 0.88   | 0.75     |
-| 1 (Delayed)   | 0.86      | 0.60   | 0.71     |
+Why threshold tuning?
+Increasing recall helps detect more delayed orders. This trade-off favors early detection — more useful in a supply chain context where missing delays is costlier than false positives.
 
-- **Why tune the threshold?**  
-  Increasing recall helps the business catch more potential delays — even with a small drop in precision. This trade-off favors **early detection** over **perfect accuracy**.
+🔍 Feature Importance
+Top 5 most important features based on model.feature_importances_:
 
+Days for shipment (scheduled)
+
+Market_USCA
+
+Category Name_Girl’s Apparel
+
+Order Region_North Africa
+
+Type_PAYMENT
+
+These features play a major role in predicting whether a shipment will be delayed.
+
+💡 Business Insights
+“First Class” shipping was always delayed → likely an error or operational issue; flagged and adjusted during feature engineering
+
+“Second Class” also had a high delay rate (~80%), which may require business process review
+
+Delay pattern is not seasonal, meaning internal logistics factors are more influential than demand surges
+
+✅ Final Summary
+This project demonstrates a structured approach to predictive modeling and real-world insight:
+
+✅ Cleaned and explored a large supply chain dataset
+
+🧱 Built meaningful features to reflect logistics operations
+
+🤖 Trained and evaluated an XGBoost model with class imbalance and threshold tuning
+
+🔍 Interpreted feature importance and delivery trends
+
+🎯 Derived actionable business insights
+
+🧰 Tools Used
+Python (Pandas, NumPy, Matplotlib, Seaborn)
+
+Scikit-learn
+
+XGBoost
+
+Jupyter Notebook
+
+📌 Author
+Novita Triwidianingsih
+📫 LinkedIn | 📂 Kaggle | 💻 GitHub
