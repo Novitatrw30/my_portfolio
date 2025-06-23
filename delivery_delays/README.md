@@ -53,3 +53,62 @@ XGBClassifier(
     use_label_encoder=False,
     random_state=42
 )
+```
+
+## 📐 Evaluation Results
+
+### 🔹 Default Threshold (0.5)
+
+| Class         | Precision | Recall | F1-Score |
+|---------------|-----------|--------|----------|
+| 0 (On time)   | 0.64      | 0.91   | 0.75     |
+| 1 (Delayed)   | 0.89      | 0.57   | 0.70     |
+
+- **Accuracy**: 73%  
+- **Weighted F1-score**: 72%
+
+---
+
+### 🔸 Tuned Threshold (0.4)
+
+| Class         | Precision | Recall | F1-Score |
+|---------------|-----------|--------|----------|
+| 0 (On time)   | 0.65      | 0.88   | 0.75     |
+| 1 (Delayed)   | 0.86      | 0.60   | 0.71     |
+
+- **Why tune the threshold?**  
+  Increasing recall helps the business catch more potential delays — even with a small drop in precision. This trade-off favors **early detection** over **perfect accuracy**.
+
+---
+
+## 🔍 Feature Importance
+Top 5 most important features based on model.feature_importances_:
+- Days for shipment (scheduled)
+- Market_USCA
+- Category Name_Girl’s Apparel
+- Order Region_North Africa
+- Type_PAYMENT
+These features play a major role in predicting whether a shipment will be delayed.
+
+## 💡 Business Insights
+- “First Class” shipping was always delayed → likely an error or operational issue; flagged and adjusted during feature engineering
+- “Second Class” also had a high delay rate (~80%), which may require business process review
+- Delay pattern is not seasonal, meaning internal logistics factors are more influential than demand surges
+
+## ✅ Final Summary
+This project demonstrates a structured approach to predictive modeling and real-world insight:
+✅ Cleaned and explored a large supply chain dataset
+🧱 Built meaningful features to reflect logistics operations
+🤖 Trained and evaluated an XGBoost model with class imbalance and threshold tuning
+🔍 Interpreted feature importance and delivery trends
+🎯 Derived actionable business insights
+
+## 🧰 Tools Used
+- Python (Pandas, NumPy, Matplotlib, Seaborn)
+- Scikit-learn
+- XGBoost
+- Jupyter Notebook
+
+## 📌 Author
+Novita Triwidianingsih
+📫 LinkedIn | 📂 Kaggle | 💻 GitHub
