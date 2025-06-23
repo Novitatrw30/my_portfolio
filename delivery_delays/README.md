@@ -51,3 +51,29 @@ eval_metric='logloss',
 use_label_encoder=False,
 random_state=42
 
+---
+
+## 📐 Evaluation Results
+
+### 🔹 Default Threshold (0.5)
+
+| Class         | Precision | Recall | F1-Score |
+|---------------|-----------|--------|----------|
+| 0 (On time)   | 0.64      | 0.91   | 0.75     |
+| 1 (Delayed)   | 0.89      | 0.57   | 0.70     |
+
+- **Accuracy**: 73%  
+- **Weighted F1-score**: 72%
+
+---
+
+### 🔸 Tuned Threshold (0.4)
+
+| Class         | Precision | Recall | F1-Score |
+|---------------|-----------|--------|----------|
+| 0 (On time)   | 0.65      | 0.88   | 0.75     |
+| 1 (Delayed)   | 0.86      | 0.60   | 0.71     |
+
+- **Why tune the threshold?**  
+  Increasing recall helps the business catch more potential delays — even with a small drop in precision. This trade-off favors **early detection** over **perfect accuracy**.
+
