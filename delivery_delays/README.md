@@ -88,20 +88,27 @@ Top 5 most important features based on model.feature_importances_:
 - Category Name_Girl’s Apparel
 - Order Region_North Africa
 - Type_PAYMENT
+
 These features play a major role in predicting whether a shipment will be delayed.
+
+---
 
 ## 💡 Business Insights
 - “First Class” shipping was always delayed → likely an error or operational issue; flagged and adjusted during feature engineering
 - “Second Class” also had a high delay rate (~80%), which may require business process review
 - Delay pattern is not seasonal, meaning internal logistics factors are more influential than demand surges
 
+---
+
 ## ✅ Final Summary
 This project demonstrates a structured approach to predictive modeling and real-world insight:
-✅ Cleaned and explored a large supply chain dataset
-🧱 Built meaningful features to reflect logistics operations
-🤖 Trained and evaluated an XGBoost model with class imbalance and threshold tuning
-🔍 Interpreted feature importance and delivery trends
-🎯 Derived actionable business insights
+- ✅ Cleaned and explored a large supply chain dataset
+- 🧱 Built meaningful features to reflect logistics operations
+- 🤖 Trained and evaluated an XGBoost model with class imbalance and threshold tuning
+- 🔍 Interpreted feature importance and delivery trends
+- 🎯 Derived actionable business insights
+
+---
 
 ## 🧰 Tools Used
 - Python (Pandas, NumPy, Matplotlib, Seaborn)
@@ -109,6 +116,8 @@ This project demonstrates a structured approach to predictive modeling and real-
 - XGBoost
 - Jupyter Notebook
 
+---
+
 ## 📌 Author
 Novita Triwidianingsih
-📫 LinkedIn | 📂 Kaggle | 💻 GitHub
+📫 [LinkedIn](https://www.linkedin.com/in/novitatrw94/) | 💻 [GitHub](https://github.com/Novitatrw30/my_portfolio/)
