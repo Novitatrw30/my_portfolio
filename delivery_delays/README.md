@@ -82,11 +82,11 @@ XGBClassifier(
 
 ## 🔍 Feature Importance
 Top 5 most important features based on model.feature_importances_:
-- Days for shipment (scheduled)
-- Market_USCA
-- Category Name_Girl’s Apparel
-- Order Region_North Africa
-- Type_PAYMENT
+1. Shipping Mode Clean – Second Class  
+2. is_first_class (flag for former “First Class”)  
+3. Days for shipment (scheduled)  
+4. Market_USCA  
+5. Order Region_North Africa
 
 These features play a major role in predicting whether a shipment will be delayed.
 
