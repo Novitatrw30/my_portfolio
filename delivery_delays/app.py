@@ -1,4 +1,3 @@
-python
 import os, pathlib, streamlit as st
 st.write("📂 CWD →", os.getcwd())
 st.write("📄 Root files →", os.listdir('.'))
