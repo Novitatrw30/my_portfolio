@@ -23,7 +23,7 @@ if uploaded_file is not None:
 
         # Load model and feature list
         ROOT = pathlib.Path(__file__).parent
-        MODEL_PATH = ROOT / "delivery_delays" / "model" / "delivery_model.pkl"
+        MODEL_PATH = ROOT / "model" / "delivery_model.pkl"
         model = joblib.load(MODEL_PATH)
         feature_names = bundle["features"]
         
