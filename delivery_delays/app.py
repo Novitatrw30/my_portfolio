@@ -1,11 +1,4 @@
-import os, pathlib, streamlit as st
-st.write("📂 CWD →", os.getcwd())
-st.write("📄 Root files →", os.listdir('.'))
-if os.path.isdir('model'):
-    st.write("📄 model/ →", os.listdir('model'))
-else:
-    st.write("❌ 'model' folder not found")
-        
+import pathlib        
 import streamlit as st
 import pandas as pd
 import joblib
@@ -29,8 +22,9 @@ if uploaded_file is not None:
         raw_df = pd.read_csv(uploaded_file, encoding='ISO-8859-1')
 
         # Load model and feature list
-        bundle = joblib.load("model/delivery_model.pkl")
-        model = bundle["model"]
+        ROOT = pathlib.Path(__file__).parent
+        MODEL_PATH = ROOT / "delivery_delays" / "model" / "delivery_model.pkl"
+        model = joblib.load(MODEL_PATH)
         feature_names = bundle["features"]
         
         # 2. Apply EXACT SAME preprocessing as training
