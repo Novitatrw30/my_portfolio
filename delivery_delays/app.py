@@ -1,3 +1,12 @@
+python
+import os, pathlib, streamlit as st
+st.write("📂 CWD →", os.getcwd())
+st.write("📄 Root files →", os.listdir('.'))
+if os.path.isdir('model'):
+    st.write("📄 model/ →", os.listdir('model'))
+    else:
+        st.write("❌ 'model' folder not found")
+        
 import streamlit as st
 import pandas as pd
 import joblib
