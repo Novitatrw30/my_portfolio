@@ -76,7 +76,7 @@ This script will:
 - Evaluate accuracy & F1 score
 - Save the model to model/delivery_model.pkl
 
-### 1. 2. 🎯 Run the Streamlit App
+### 2. 🎯 Run the Streamlit App
 
 ```python
 streamlit run app.py
@@ -87,14 +87,21 @@ Upload a CSV with the same structure as the training data to get predictions.
 
 ---
 
-## 📦 Installation (If Cloning Repo)
-``` bash
-# Create env and install requirements
-pip install -r requirements.txt
+## 🚀 How to Run the App Locally
 
-# Run training and app
-python run_all.py
-streamlit run app.py
+```bash
+# 1. Clone the repository
+git clone https://github.com/Novitatrw30/my_portfolio.git
+cd my_portfolio/delivery_delays
+
+# 2. Install required packages
+pip install -r requirements.txt  # Or install manually
+
+# 3. Place the dataset
+# Download from data folder
+
+# 4. Run the Streamlit app
+streamlit run streamlit_app.py
 ```
 ---
 
