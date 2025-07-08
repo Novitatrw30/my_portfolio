@@ -24,7 +24,9 @@ if uploaded_file is not None:
         # Load model and feature list
         ROOT = pathlib.Path(__file__).parent
         MODEL_PATH = ROOT / "model" / "delivery_model.pkl"
-        model = joblib.load(MODEL_PATH)
+        bundle = joblib.load(MODEL_PATH)
+        model = bundle["model"]
+        feature_names = bundle["features"]
        
         # 2. Apply EXACT SAME preprocessing as training
         clean_df = preprocess(raw_df.copy())
