@@ -32,6 +32,7 @@ This project was built to solve a classification problem using the Dataco Smart 
 ---
 
 ## 📁 Project Structure
+```yaml
 delivery_delays_project/
 ├── data/
 │ └── sample_data.csv # sample for demo
@@ -49,7 +50,7 @@ delivery_delays_project/
 ├── README.md
 └── .streamlit/
   └── config.toml # optional layout config
-
+```
 ---
 
 ## 📁 Dataset
@@ -87,7 +88,7 @@ Upload a CSV with the same structure as the training data to get predictions.
 ---
 
 ## 🌍 Streamlit Cloud (Demo Link)
-👉 [Try the app here (hosted on Streamlit Cloud)] (https://late-delivery-risk.streamlit.app/)
+👉 [Try the app here (hosted on Streamlit Cloud)](https://late-delivery-risk.streamlit.app/)
 
 ## 📌 Author
 Novita Triwidianingsih
