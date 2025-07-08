@@ -87,8 +87,37 @@ Upload a CSV with the same structure as the training data to get predictions.
 
 ---
 
+## 📦 Installation (If Cloning Repo)
+``` bash
+# Create env and install requirements
+pip install -r requirements.txt
+
+# Run training and app
+python run_all.py
+streamlit run app.py
+```
+---
+
 ## 🌍 Streamlit Cloud (Demo Link)
 👉 [Try the app here (hosted on Streamlit Cloud)](https://late-delivery-risk.streamlit.app/)
+- Interact with the model directly in your browser. Fill in the order details to see if a delivery is predicted to be late.
+
+---
+
+## 📌 Project Highlights
+- Conducted full EDA and handled 50+ features
+- Built modular Python scripts for data loading and preprocessing
+- Implemented and tuned XGBoost classifier
+- Created a user-friendly web app using Streamlit
+- Automated model saving and loading with joblib
+
+## 🔄 Future Improvements
+- Add cross-validation and hyperparameter tuning
+- Enhance feature engineering with external data (e.g., weather, location)
+- Improve model explainability using SHAP or LIME
+- Deploy with Docker or on other cloud platforms
+
+---
 
 ## 📌 Author
 Novita Triwidianingsih
